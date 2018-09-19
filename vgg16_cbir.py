@@ -11,7 +11,7 @@ from keras.preprocessing import image
 from keras.applications.vgg16 import preprocess_input
 from keras.layers import Dense
 from keras.models import Model
-import tensorflow
+
 class VGGNet:
     def __init__(self):
         self.input_shape = (224, 224, 3)
