@@ -59,6 +59,6 @@ if __name__ == "__main__":
     print "--------------------------------------------------"
     
     h5f = h5py.File(output, 'w')
-    h5f.create_dataset('dataset_1', data = feats)
-    h5f.create_dataset('dataset_2', data = names)
+    h5f.create_dataset('dataset_feat', data=feats)
+    h5f.create_dataset('dataset_name', data=names)
     h5f.close()
