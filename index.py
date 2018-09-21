@@ -24,7 +24,23 @@ args = vars(ap.parse_args())
 
 
 def get_imlist(path):
-    return [os.path.join(path, f) for f in os.listdir(path) if f.endswith('.jpg')]
+    img_paths = list()
+    labels = list()
+    class_dirs = sorted(os.listdir(path))
+    dict_classid = dict()
+    for i in range(len(class_dirs)):
+        label = i
+        class_dir = class_dirs[i]
+        dict_classid[class_dir] = label
+        class_path = os.path.join(path, class_dir)
+        file_names = sorted(os.listdir(class_path))
+        for file_name in file_names:
+            file_path = os.path.join(class_path, file_name)
+            img_paths.append(file_path)
+            labels.append(label)
+        img_paths = np.asarray(img_paths)
+        labels = np.asarray(labels)
+    return img_paths, labels
 
 
 '''
